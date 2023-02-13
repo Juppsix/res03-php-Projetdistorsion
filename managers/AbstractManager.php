@@ -16,9 +16,9 @@ abstract class AbstractManager {
         $this->username = $username;
         $this->password = $password;
         $this->db = new PDO(
-            "mysql:host=db.3wa.io;port=3306;dbname=anthonycormier_phpj11",
-            "anthonycormier",
-            "f7af5a3387016b3d12b42619a8ad2703"
+            "mysql:host={$this->host};port={$this->port};dbname={$this->dbName}",
+            "{$this->username}",
+            "{$this->password}"
             );
     }
 }

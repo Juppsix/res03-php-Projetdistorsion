@@ -1,15 +1,7 @@
 <?php
 
 class UserManager extends AbstractManager {
-    
-    public function getAllUsers() : array {
-        
-        $query = $this->db->prepare("SELECT * FROM users");
-        $query->execute();
-        $users = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $users;
-    }
-    
+
     public function getUserById(int $id) : User {
         
         $query = $this->db->prepare("SELECT * FROM users WHERE id = :id");
@@ -17,6 +9,14 @@ class UserManager extends AbstractManager {
         $query->execute($parameters);
         $user = $query->fetch(PDO::FETCH_ASSOC);
         return $user;
+    }
+    
+    public function getAllUsers() : array {
+        
+        $query = $this->db->prepare("SELECT * FROM users");
+        $query->execute();
+        $users = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
     }
     
     public function insertUser(User $user) : User {
