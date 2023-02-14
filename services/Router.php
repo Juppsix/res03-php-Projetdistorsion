@@ -18,20 +18,20 @@ class Router {
     
     public function checkRoute(string $route) : void {
         
-        if ($route === "users") {
-            $this->route -> UserController::index;
+        if ($route === "homepage") {
+            $this->userController->index();
         }
         
-        else if ($route === "user-create") {
-            $this->route -> UserController::create;
+        else if ($route === "login") {
+            $this->userController->login();
         }
         
-        else if ($route === "user-login") {
-            $this->route -> UserController::login;
+        else if ($route === "create") {
+            $this->userController->create();
         }
         
         else {
-            $this->route -> UserController::login;
+            $this->userController->index();
         }
         
     }

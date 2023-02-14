@@ -16,7 +16,7 @@ class UserController extends AbstractController {
     public function index() {
         
         $allUsers = $this->manager -> getAllUsers();
-        $this->render("index", ["users" => $allUsers]);
+        $this->render("homepage", ["users" => $allUsers]);
     }
     
     public function create(array $post) {
