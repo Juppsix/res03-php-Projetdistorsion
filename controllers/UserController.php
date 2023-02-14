@@ -15,18 +15,20 @@ class UserController extends AbstractController {
     
     public function index() {
         
-        $allUsers = $this->manager -> getAllUsers();
-        $this->render("homepage", ["users" => $allUsers]);
+        $this->render("homepage", []);
     }
     
     public function create(array $post) {
         
-        $user = new User($post['email'], $post['username'], $post['password']);
-        $this->manager-> insertUser($user);
-        render("create", ["user"=>$this->manager->insertUser($user)]);
+        $this->render("register", []);
+        // $user = new User($post['email'], $post['username'], $post['password']);
+        // $this->manager-> insertUser($user);
+        // render("create", ["user"=>$this->manager->insertUser($user)]);
     }
     
-    public function login() {
+    public function login(array $post) {
+        var_dump($post);
+        $this->render("login", []);
         
     }
 }

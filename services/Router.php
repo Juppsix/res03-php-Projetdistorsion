@@ -23,11 +23,13 @@ class Router {
         }
         
         else if ($route === "login") {
-            $this->userController->login();
+            $post = $_POST;
+            $this->userController->login($post);
         }
         
         else if ($route === "create") {
-            $this->userController->create();
+            $post = $_POST;
+            $this->userController->create($post);
         }
         
         else {
