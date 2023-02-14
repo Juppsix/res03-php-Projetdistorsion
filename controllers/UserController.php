@@ -2,6 +2,8 @@
 
 require("AbstractController.php");
 require("managers/UserManager.php");
+require("models/User.php");
+
 
 
 class UserController extends AbstractController {
@@ -19,15 +21,22 @@ class UserController extends AbstractController {
     }
     
     public function create(array $post) {
+        var_dump($post);
+        if(empty($post["firstName"]) && empty($post["lastName"]) && empty($post["email"]) && empty($post["username"]) && empty($post["password"])) {
+            echo "Veuillez remplir le formulaire";
+            $this->render("register", []);
+        }
+        else {
+            $user = new User($post['firstName'], $post['lastName'], $post['email'], $post['username'], $post['password']);
+            $this->manager->insertUser($user);
+            $this->render("homepage", []);
+        }
         
-        $this->render("register", []);
-        // $user = new User($post['email'], $post['username'], $post['password']);
-        // $this->manager-> insertUser($user);
-        // render("create", ["user"=>$this->manager->insertUser($user)]);
+        
     }
     
     public function login(array $post) {
-        var_dump($post);
+        
         $this->render("login", []);
         
     }
