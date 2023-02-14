@@ -27,7 +27,7 @@ class UserController extends AbstractController {
     }
     
     public function login(array $post) {
-        var_dump($post);
+       
         $this->render("login", []);
         
     }
