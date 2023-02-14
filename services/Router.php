@@ -31,7 +31,7 @@ class Router {
         }
         
         else {
-            $this->route -> UserController::index;
+            $this->route -> UserController::login;
         }
         
     }

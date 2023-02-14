@@ -2,8 +2,6 @@
 
 require("services/Router.php");
 require("models/User.php");
-require("managers/AbstractManager.php");
-require("managers/UserManager.php");
 
 $router = new Router();
 
@@ -57,5 +55,4 @@ else {
     $router->checkRoute("");
 };
 
-var_dump($userController);
 ?>

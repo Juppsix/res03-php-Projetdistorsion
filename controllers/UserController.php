@@ -1,6 +1,7 @@
 <?php
 
 require("AbstractController.php");
+require("managers/UserManager.php");
 
 
 class UserController extends AbstractController {
@@ -23,6 +24,10 @@ class UserController extends AbstractController {
         $user = new User($post['email'], $post['username'], $post['password']);
         $this->manager-> insertUser($user);
         render("create", ["user"=>$this->manager->insertUser($user)]);
+    }
+    
+    public function login() {
+        
     }
 }
 
