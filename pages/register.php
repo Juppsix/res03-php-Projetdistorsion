@@ -1,7 +1,7 @@
 <?php
 
 $template = "register";
-require("templates/layout.phtml");
+require("views/layout.phtml"); 
 
 
 ?>

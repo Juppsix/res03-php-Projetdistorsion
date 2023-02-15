@@ -13,24 +13,29 @@ class UserManager extends AbstractManager {
         return $user;
     }
     
-    public function getAllUsers() : array {
-        
-        $query = $this->db->prepare("SELECT * FROM users");
-        $query->execute();
-        $users = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $users;
-    }
-    
     public function insertUser(User $user) : User {
         
-        $query = $this->db->prepare("INSERT INTO users VALUES (null, :email, :username, :password)");
+        $query = $this->db->prepare("INSERT INTO users VALUES (null,:first_name, :last_name, :email, :username, :password)");
         $parameters = [
-            'email' => $user -> getEmail(),
-            'username' => $user -> getUsername(),
-            'password' => $user -> getPassword(),
+            'first_name' => $user->getFirstName(),
+            'last_name' => $user->getLastName(),
+            'email' => $user->getEmail(),
+            'username' => $user->getUsername(),
+            'password' => $user->getPassword(),
             ];
         $query->execute($parameters);
         $query->fetch(PDO::FETCH_ASSOC);
+        return $user;
+    }
+    
+    function loadUser(string $username) : User {
+        
+        $query = $this->db->prepare("SELECT * FROM users WHERE username = :username");
+        $parameters = ["email" => $email];
+        $query->execute($parameters);
+        $users = $query->fetch(PDO::FETCH_ASSOC);
+        $user = new User($users["first_name"], $users["last_name"], $users["email"], $users["username"], $users["password"]);
+        $user->setId($users["id"]);
         return $user;
     }
 }
