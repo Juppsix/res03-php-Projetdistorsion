@@ -22,26 +22,33 @@ class UserController extends AbstractController {
     
     public function create(array $post) {
         
-        if ((isset($post["first_name"]) && empty($post["first_name"])) || (isset($post["last_name"]) && empty($post["last_name"])) || (isset($post["email"]) && empty($post["email"])) || (isset($post["username"]) && empty($post["username"])) || (isset($post["password"]) && empty($post["password"])) || (isset($post["confirmPassword"]) && empty($post["confirmPassword"]))) {
+        if (empty($post)) {
+            $this->render("register", []);
+        }
+        
+        else {
+            if ((isset($post["first_name"]) && empty($post["first_name"])) || (isset($post["last_name"]) && empty($post["last_name"])) || (isset($post["email"]) && empty($post["email"])) || (isset($post["username"]) && empty($post["username"])) || (isset($post["password"]) && empty($post["password"])) || (isset($post["confirmPassword"]) && empty($post["confirmPassword"]))) {
     
             $this->render("register", []);
             echo "L'un des champs n'est pas rempli.";
-        }
-        else {
-            
-            if ($post["password"] === $post["confirmPassword"]) {
-        
-                $hash = password_hash($post["password"], PASSWORD_DEFAULT);
-                $user = new User($post["first_name"], $post["last_name"], $post["email"], $post["username"], $hash);
-                $this->manager->insertUser($user);
-                $this->render("homepage", []);
             }
-            
             else {
                 
-                echo "Les deux mots de passe ne sont pas identiques.";
+                if ($post["password"] === $post["confirmPassword"]) {
+            
+                    $hash = password_hash($post["password"], PASSWORD_DEFAULT);
+                    $user = new User($post["first_name"], $post["last_name"], $post["email"], $post["username"], $hash);
+                    $this->manager->insertUser($user);
+                    $this->render("homepage", []);
+                }
+                
+                else {
+                    
+                    echo "Les deux mots de passe ne sont pas identiques.";
+                }
             }
         }
+        
         
         
     }
