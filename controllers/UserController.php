@@ -37,7 +37,9 @@ class UserController extends AbstractController {
                 if ($post["password"] === $post["confirmPassword"]) {
             
                     $hash = password_hash($post["password"], PASSWORD_DEFAULT);
-                    $user = new User($post["first_name"], $post["last_name"], $post["email"], $post["username"], $hash);
+                    
+                
+                    $user = new User($post["firstName"], $post["lastName"], $post["email"], $post["username"], $hash);
                     $this->manager->insertUser($user);
                     $this->render("homepage", []);
                 }
@@ -54,27 +56,34 @@ class UserController extends AbstractController {
     }
     
     public function login(array $post) {
-        if ((isset($post["loginEmail"]) && !empty($post["loginEmail"])) && (isset($post["loginPassword"]) && !empty($post["loginPassword"]))) {
-    
-            $recup = loadUser($_POST["loginEmail"]);
-            $mdp = $recup->getPassword();
         
-            if (password_verify($_POST["loginPassword"], $mdp)) {
-                $this->render("homepage", []);
-            }
-            
-            else {
-                $this->render("login", []);
-                echo "Le mot de passe est incorrect";
-            }
-        }
-        
-        else if ((isset($post["email"]) && empty($post["email"])) || (isset($post["password"]) && empty($post["password"]))) {
-            
-            echo "L'un des champs n'est pas rempli.";
+        if (empty($post)) {
             $this->render("login", []);
         }
         
+        else {
+        
+            if ((isset($post["loginUsername"]) && !empty($post["loginUsername"])) && (isset($post["loginPassword"]) && !empty($post["loginPassword"]))) {
+        
+                $recup = $this->manager->loadUser($post["loginUsername"]);
+                $mdp = $recup->getPassword();
+            
+                if (password_verify($post["loginPassword"], $mdp)) {
+                    $this->render("homepage", []);
+                }
+                
+                else {
+                    $this->render("login", []);
+                    echo "Le mot de passe est incorrect";
+                }
+            }
+            
+            else if ((isset($post["username"]) && empty($post["username"])) || (isset($post["password"]) && empty($post["password"]))) {
+                
+                echo "L'un des champs n'est pas rempli.";
+                $this->render("login", []);
+            }
+        }
         
     }
 }
