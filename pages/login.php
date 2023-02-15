@@ -1,7 +1,7 @@
 <?php
 
 $template = "login";
-require("templates/layout.phtml");
+require("views/layout.phtml");
 
 
 ?>

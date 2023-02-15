@@ -1,7 +1,7 @@
 <?php
 
 $template = "homepage";
-require("templates/layout.phtml");
+require("views/layout.phtml");
 
 
 ?>

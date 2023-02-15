@@ -27,6 +27,17 @@ class UserManager extends AbstractManager {
         $query->fetch(PDO::FETCH_ASSOC);
         return $user;
     }
+    
+    function loadUser(string $username) : User {
+        
+        $query = $this->db->prepare("SELECT * FROM users WHERE username = :username");
+        $parameters = ["email" => $email];
+        $query->execute($parameters);
+        $users = $query->fetch(PDO::FETCH_ASSOC);
+        $user = new User($users["first_name"], $users["last_name"], $users["email"], $users["username"], $users["password"]);
+        $user->setId($users["id"]);
+        return $user;
+    }
 }
 
 ?>
