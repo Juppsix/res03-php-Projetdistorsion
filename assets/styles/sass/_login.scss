@@ -1,4 +1,72 @@
-fieldset {
-    background-color : blue;
-    color: red;
+body main#login {
+    
+    h1 {
+        color: #8EA7E9;
+        display: flex;
+        justify-content: center;
+        font-family: Roboto;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px black;
+        margin-top: 1vh;
+    }
 }
+
+body main#login {
+    height: 85vh;
+    background-color: #7286D3;
+           section {
+               background-color: #7286D3;
+               display: flex;
+               justify-content: center;
+               grid-template-columns: 0.2fr 1fr 0.2fr;
+               grid-template-rows: 1fr 1fr 1fr;
+               align-items: center;
+               height: 90vh;
+                article {
+                    display: grid;
+                    grid-template-rows: 0.5fr 1fr;
+                    background-color: snow;
+                    height: 20vh;
+                    width: 25vw;
+                    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+                    border-radius: 5px;
+                    form {
+                        display: grid;
+                        grid-template-rows: 1fr 1fr 1fr;
+                        fieldset {
+                            text-align: center;
+                            font-family: Roboto;
+                             font-weight: bold;
+                             font-size: 1.3rem;
+                            
+                            }
+                        }
+                        
+                    }
+                }
+           }
+
+body main#login {
+    section {
+        article {
+            form {
+                .button-5 {
+                    justify-content: center;
+                    border-radius: 0px 0px 5px 5px;
+                    border: none;
+                    font-family: Roboto;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+body{
+    overflow-y: hidden;
+}
+.button-5:hover {
+    background-color: #E5E0FF;
+    color: white;
+ 
+}
+

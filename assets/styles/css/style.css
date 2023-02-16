@@ -1,6 +1,204 @@
-fieldset {
-  background-color: blue;
-  color: red;
+body main#login h1 {
+  color: #8EA7E9;
+  display: flex;
+  justify-content: center;
+  font-family: Roboto;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  margin-top: 1vh;
+}
+
+body main#login {
+  height: 85vh;
+  background-color: #7286D3;
+}
+body main#login section {
+  background-color: #7286D3;
+  display: flex;
+  justify-content: center;
+  grid-template-columns: 0.2fr 1fr 0.2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+  height: 90vh;
+}
+body main#login section article {
+  display: grid;
+  grid-template-rows: 0.5fr 1fr;
+  background-color: snow;
+  height: 20vh;
+  width: 25vw;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+}
+body main#login section article form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+body main#login section article form fieldset {
+  text-align: center;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+body main#login section article form .button-5 {
+  justify-content: center;
+  border-radius: 0px 0px 5px 5px;
+  border: none;
+  font-family: Roboto;
+  font-weight: bold;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+.button-5:hover {
+  background-color: #E5E0FF;
+  color: white;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+footer {
+  background-color: #8EA7E9;
+  height: 25vh;
+}
+footer nav {
+  background-color: #8EA7E9;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 0.2fr;
+}
+footer nav ul {
+  display: flex;
+  grid-column: 2/3;
+  text-align: center;
+  justify-content: space-between;
+  padding-top: 1vh;
+}
+footer nav ul li article h3 {
+  font-size: 1.5rem;
+  padding-top: 1.4vh;
+  font-family: Roboto;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  text-decoration: none;
+}
+
+footer nav ul li article p {
+  font-family: Roboto;
+  padding-top: 1vh;
+  font-size: 1.1rem;
+  color: white;
+  font-weight: bold;
+}
+
+p:hover {
+  text-shadow: 1px 1px 2px black;
+}
+
+h3:hover {
+  color: #E5E0FF;
+}
+
+header {
+  height: 6vh;
+  background-color: #8EA7E9;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+header nav {
+  height: 6vh;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 0.2fr;
+}
+header nav ul {
+  justify-content: space-between;
+  display: flex;
+  grid-column: 2/3;
+  align-items: center;
+}
+header nav ul li a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: Roboto;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  text-decoration: none;
+}
+
+header nav h5 {
+  align-self: center;
+  font-size: 2.2rem;
+  font-family: OCR A Std, monospace;
+  margin-left: 1rem;
+  text-shadow: 1px 1px 2px black;
+}
+
+header nav h5:hover {
+  text-shadow: 5px 5px white;
+}
+
+header nav ul li a:hover {
+  color: #E5E0FF;
 }
 
 /*# sourceMappingURL=style.css.map */

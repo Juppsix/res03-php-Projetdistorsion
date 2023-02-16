@@ -1,0 +1,55 @@
+footer {
+    background-color: #8EA7E9;
+    height: 25vh;
+    nav {
+        background-color: #8EA7E9;
+        display: grid;
+        grid-template-columns: 0.2fr 1fr 0.2fr;
+        ul {
+            display: flex;
+            grid-column: 2/3;
+            text-align: center;
+            justify-content: space-between;
+            padding-top: 1vh;
+            li {
+               article {
+                   h3 {
+                       font-size: 1.5rem;
+                       padding-top: 1.4vh;
+                       font-family: Roboto;
+                       font-weight: bold;
+                       text-shadow: 1px 1px 2px black;
+                     color: white;
+        text-decoration: none;
+                   }
+               }
+            }
+        }
+    }
+}
+
+footer {
+    nav {
+        ul {
+            li {
+                article {
+                    p {
+                         font-family: Roboto;
+                        padding-top: 1vh;
+                        font-size: 1.1rem;
+                        color: white;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+p:hover {
+   text-shadow: 1px 1px 2px black;
+  
+}
+h3:hover {
+    color: #E5E0FF;
+}
